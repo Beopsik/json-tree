@@ -2,9 +2,9 @@ const comp = require('./component.json');
 
 let fs = require('fs');
 
-function dfs(component: any, level: number) {
+async function dfs(component: any, level: number) {
     console.log(level + ":" + component.name);
-    fs.appendFile('./' + component.name + '.js', 'import React from \'react\';\n', function (err) {
+    await fs.appendFile('./' + component.name + '.js', 'import React from \'react\';\n', function (err) {
         if (err == null)
             console.log('success');
         else
