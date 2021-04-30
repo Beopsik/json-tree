@@ -1,0 +1,28 @@
+{
+    "name": "App",
+    "attribute": "root",
+    "children": [
+        {
+            "name": "AddTodo",
+            "children": []
+        },
+        {
+            "name": "TodoList",
+            "children": [
+                {
+                    "name": "TodoItem",
+                    "children": [
+                        {
+                            "name": "item1",
+                            "chilren": []
+                        },
+                        {
+                            "name": "item2",
+                            "chilren": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
