@@ -35,35 +35,44 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var comp = require('./component.json');
-var fs = require('fs');
+var fs = require('fs').promises;
+var str1 = 'const ';
+var str2 = ' = () => { \n return <div>';
+var str3 = '</div>; \n};\n\n';
 function dfs(component, level) {
     return __awaiter(this, void 0, void 0, function () {
         var i, next;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    console.log(level + ":" + component.name);
-                    return [4 /*yield*/, fs.appendFile('./' + component.name + '.js', 'import React from \'react\';\n', function (err) {
-                            if (err == null)
-                                console.log('success');
-                            else
-                                console.log('fail');
-                        })];
+                case 0: 
+                //console.log(level + ":" + component.name);
+                return [4 /*yield*/, fs.appendFile('./' + component.name + '.js', 'import React from \'react\';\n', function (err) {
+                        if (err)
+                            console.log('fail');
+                    })];
                 case 1:
+                    //console.log(level + ":" + component.name);
                     _a.sent();
                     level++;
                     for (i in component.children) {
                         next = component.children[i];
                         console.log(next.name);
-                        fs.appendFile('./' + component.name + '.js', 'import  from \'' + './' + next.name + '\';\n', function (err) {
-                            if (err == null)
-                                console.log('success');
-                            else
+                        fs.appendFile('./' + component.name + '.js', 'import ' + next.name + ' from \'' + './' + next.name + '\';\n', function (err) {
+                            if (err)
                                 console.log('fail');
                         });
-                        //console.log(next);
                         dfs(next, level);
                     }
+                    return [4 /*yield*/, fs.appendFile('./' + component.name + '.js', '\n' + str1 + component.name + str2 + component.name + str3, function (err) {
+                            if (err)
+                                console.log('fail');
+                        })];
+                case 2:
+                    _a.sent();
+                    fs.appendFile('./' + component.name + '.js', 'export default ' + component.name + ';\n', function (err) {
+                        if (err)
+                            console.log('fail');
+                    });
                     return [2 /*return*/];
             }
         });

@@ -1,3 +1,9 @@
 import React from 'react';
-import  from './AddTodo';
-import  from './TodoList';
+import AddTodo from './AddTodo';
+import TodoList from './TodoList';
+
+const App = () => { 
+ return <div>App</div>; 
+};
+
+export default App;
