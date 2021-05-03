@@ -1,0 +1,10 @@
+"use strict";
+exports.__esModule = true;
+//import comp from './sample_component.json';
+var comp = require('./sample_component.json');
+var ShellScript_1 = require("./ShellScript");
+var json_tree_1 = require("./json_tree");
+var json_tree_2 = require("./json_tree");
+ShellScript_1.ShellScript();
+json_tree_2.makeFolder();
+json_tree_1.dfs(comp.data);
